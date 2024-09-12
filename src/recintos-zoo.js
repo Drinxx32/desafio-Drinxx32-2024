@@ -29,11 +29,12 @@ class RecintosZoo {
         if (!Number.isInteger(quantidade) || quantidade <= 0) {
             return { erro: "Quantidade inválida" };
         }
-
+        
+        // verifica o recinto e se outro animal está nele 
         const especie = this.animaisValidos[animal];
         const espaco = especie.tamanho * quantidade;
         let recintosViaveis = [];
-
+        
         for (let recinto of this.recintos) {
             let espacoOcupado = this.calcularEspacoOcupado(recinto);
             let espacoLivre = recinto.tamanho - espacoOcupado;
